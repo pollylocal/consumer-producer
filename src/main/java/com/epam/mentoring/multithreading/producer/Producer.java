@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author Aliaksandr Makavetski(UC215698)
  */
-public class Producer implements Runnable{
+public class Producer implements Runnable {
     private static final Logger logger = LoggerFactory.getLogger(Producer.class);
 
     private final Generator generator;
@@ -27,7 +27,7 @@ public class Producer implements Runnable{
 
     public void run() {
         logger.info("Producer-{} started with delay {}", order, delay);
-        while (!Thread.currentThread().isInterrupted()){
+        while (!Thread.currentThread().isInterrupted()) {
             Long number = generator.getNextNumber();
             logger.info("Producer-{} got number {}", order, number);
             try {

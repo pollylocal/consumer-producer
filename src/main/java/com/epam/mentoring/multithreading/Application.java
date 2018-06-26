@@ -6,9 +6,7 @@ import com.epam.mentoring.multithreading.filewriter.OrderedFileWriter;
 import com.epam.mentoring.multithreading.generator.AtomicLongGenerator;
 import com.epam.mentoring.multithreading.generator.Generator;
 import com.epam.mentoring.multithreading.producer.Producer;
-import com.epam.mentoring.multithreading.util.ConsoleReader;
 
-import java.io.Console;
 import java.util.Comparator;
 import java.util.Random;
 import java.util.concurrent.*;
@@ -46,11 +44,11 @@ public class Application {
         }
 
 
-        for (int i = 1; i <= producerCount; i++){
+        for (int i = 1; i <= producerCount; i++) {
             int producerDelay = producerDelayFrom + random.nextInt(producerDelayTo - producerDelayFrom);
             executorService.submit(new Producer(generator, i, producerDelay, queue));
         }
-        for (int i = 1; i <= consumerCount; i++){
+        for (int i = 1; i <= consumerCount; i++) {
             int consumerDalay = consumerDelayFrom + random.nextInt(consumerDelayTo - consumerDelayFrom);
             executorService.submit(new Consumer(i, consumerDalay, queue, writingQueue));
         }

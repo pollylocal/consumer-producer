@@ -4,9 +4,10 @@ import java.io.Console;
 
 public class ConsoleReader {
     private static final Console console;
+
     static {
         console = System.console();
-        if (console == null){
+        if (console == null) {
             throw new IllegalStateException("Cannot access console");
         }
     }

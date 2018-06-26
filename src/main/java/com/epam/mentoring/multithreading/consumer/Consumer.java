@@ -1,7 +1,6 @@
 package com.epam.mentoring.multithreading.consumer;
 
 import com.epam.mentoring.multithreading.domain.Message;
-import com.epam.mentoring.multithreading.producer.Producer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author Aliaksandr Makavetski(UC215698)
  */
-public class Consumer implements Runnable{
+public class Consumer implements Runnable {
     private static final Logger logger = LoggerFactory.getLogger(Consumer.class);
 
 
@@ -29,7 +28,7 @@ public class Consumer implements Runnable{
 
     public void run() {
         logger.info("Consumer-{} started with delay {}", order, delay);
-        while (!Thread.currentThread().isInterrupted()){
+        while (!Thread.currentThread().isInterrupted()) {
             try {
                 TimeUnit.MILLISECONDS.sleep(delay);
                 logger.info("Consumer-{} is trying to get value from queue", order);
