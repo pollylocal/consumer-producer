@@ -36,9 +36,9 @@ public class Producer implements Runnable{
                 queue.put(number);
                 logger.info("Producer-{} added {} to queue", order, number);
             } catch (InterruptedException e) {
-                logger.error("Producer-{}  was interrupted", order);
                 Thread.currentThread().interrupt();
             }
         }
+        logger.info("Producer-{} was interrupted and finished data processing", order);
     }
 }

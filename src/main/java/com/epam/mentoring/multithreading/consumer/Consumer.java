@@ -36,10 +36,11 @@ public class Consumer implements Runnable{
                 Long number = queue.take();
                 logger.info("Consumer-{} got value {}", order, number);
                 writingQueue.add(new Message(number, number + " was processed"));
-                logger.info("Consumer-{} added {} to queue", order, number);
+                logger.info("Consumer-{} added {} to writing queue", order, number);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
         }
+        logger.info("Consumer-{} was interrupted and finished data processing", order);
     }
 }
